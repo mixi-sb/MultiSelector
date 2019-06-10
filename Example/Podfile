@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'MultiSelector_Example' do
+  pod 'MultiSelector', :path => '../'
+
+  target 'MultiSelector_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
