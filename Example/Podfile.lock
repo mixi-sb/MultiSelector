@@ -1,16 +1,23 @@
 PODS:
+  - Fakery (4.0.0)
   - MultiSelector (0.1.0)
 
 DEPENDENCIES:
+  - Fakery
   - MultiSelector (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Fakery
 
 EXTERNAL SOURCES:
   MultiSelector:
     :path: "../"
 
 SPEC CHECKSUMS:
-  MultiSelector: 97e4c131810e716e819b59d871d6bf3b56f2ab20
+  Fakery: 476f6d947de432f84703acc830a1e7166330299b
+  MultiSelector: 2e02889566b795e018846c0b83eac06aa897f542
 
-PODFILE CHECKSUM: af22d8271a0dba1f3d1005bd08ab3cc3221db594
+PODFILE CHECKSUM: 7b1ae8cb85a51ed54efb0b5abbb35f29b1ea6864
 
 COCOAPODS: 1.7.1

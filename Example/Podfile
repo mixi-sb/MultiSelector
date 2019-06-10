@@ -1,11 +1,11 @@
 use_frameworks!
+platform :ios, '10.0'
 
 target 'MultiSelector_Example' do
   pod 'MultiSelector', :path => '../'
+  pod 'Fakery'
 
   target 'MultiSelector_Tests' do
     inherit! :search_paths
-
-    
   end
 end

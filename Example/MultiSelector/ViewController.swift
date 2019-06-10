@@ -7,18 +7,30 @@
 //
 
 import UIKit
+import Fakery
+import MultiSelector
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var multiSelector: MultiSelector!
+    
+    private let faker = Faker()
+    
+    private lazy var allModels = (0...19).map { _ in faker.name.firstName() }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        multiSelector.models = (0..<10).map { allModels[$0] }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func changeNumberOfModels(_ sender: UIStepper) {
+        multiSelector.models = (0..<Int(sender.value)).map { allModels[$0] }
     }
-
+    
+    @IBAction func changeNumberOfColumns(_ sender: UIStepper) {
+        multiSelector.numberOfColumns = Int(sender.value)
+    }
+    
 }
 
