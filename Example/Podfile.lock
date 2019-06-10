@@ -1,0 +1,16 @@
+PODS:
+  - MultiSelector (0.1.0)
+
+DEPENDENCIES:
+  - MultiSelector (from `../`)
+
+EXTERNAL SOURCES:
+  MultiSelector:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MultiSelector: 97e4c131810e716e819b59d871d6bf3b56f2ab20
+
+PODFILE CHECKSUM: af22d8271a0dba1f3d1005bd08ab3cc3221db594
+
+COCOAPODS: 1.7.1
