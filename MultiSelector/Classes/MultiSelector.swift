@@ -121,16 +121,26 @@ public class MultiSelector: UIView {
     
     public var models: [String] = [] {
         didSet {
-            buttons = models.map {
+            buttons = models.enumerated().map {
                 let button = buttonType.init(frame: .zero)
-                button.setTitle($0, for: .normal)
-                button.backgroundColor = .lightGray
+                button.setTitle($1, for: .normal)
+                button.tag = $0
+                button.addTarget(self, action: #selector(multiSelect(_:)), for: .touchUpInside)
                 return button
             }
             refresh()
         }
     }
     
-    public var buttonType: UIButton.Type = UIButton.self 
+    public var buttonType: UIButton.Type = MultiSelectionButton.self 
+    
+}
+
+extension MultiSelector {
+    
+    @objc
+    private func multiSelect(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+    }
     
 }
