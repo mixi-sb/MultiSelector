@@ -20,10 +20,6 @@ it, simply add the following line to your Podfile:
 pod 'MultiSelector'
 ```
 
-## Author
-
-lm2343635, lm2343635@126.com
-
 ## License
 
 MultiSelector is available under the MIT license. See the LICENSE file for more info.

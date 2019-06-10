@@ -122,7 +122,7 @@ public class MultiSelector: UIView {
     public var models: [String] = [] {
         didSet {
             buttons = models.map {
-                let button = UIButton()
+                let button = buttonType.init(frame: .zero)
                 button.setTitle($0, for: .normal)
                 button.backgroundColor = .lightGray
                 return button
@@ -130,5 +130,7 @@ public class MultiSelector: UIView {
             refresh()
         }
     }
+    
+    public var buttonType: UIButton.Type = UIButton.self 
     
 }
