@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        multiSelector.delegate = self
         multiSelector.models = (0..<10).map { allModels[$0] }
     }
 
@@ -34,3 +35,10 @@ class ViewController: UIViewController {
     
 }
 
+extension ViewController: MultiSelecorDelegate {
+    
+    func didSelectedIndexUpdated(indexes: [Int]) {
+        print(indexes.map { allModels[$0] })
+    }
+    
+}

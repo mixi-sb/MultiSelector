@@ -26,6 +26,10 @@
 
 import UIKit
 
+public protocol MultiSelecorDelegate: class {
+    func didSelectedIndexUpdated(indexes: [Int])
+}
+
 public class MultiSelector: UIView {
     
     private lazy var stackView: UIStackView = {
@@ -94,6 +98,8 @@ public class MultiSelector: UIView {
 
     }
     
+    public weak var delegate: MultiSelecorDelegate? = nil
+    
     @IBInspectable
     public var numberOfColumns: Int = 4 {
         didSet {
@@ -141,6 +147,12 @@ extension MultiSelector {
     @objc
     private func multiSelect(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
+        
+        delegate?.didSelectedIndexUpdated(indexes: buttons.enumerated().filter {
+            $0.element.isSelected
+        }.map {
+            $0.offset
+        })
     }
     
 }
