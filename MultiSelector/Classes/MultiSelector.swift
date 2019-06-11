@@ -125,12 +125,11 @@ public class MultiSelector: UIView {
         }
     }
     
-    public var models: [String] = [] {
+    public var models: [MultiSelectorModel] = [] {
         didSet {
-            buttons = models.enumerated().map {
-                let button = buttonType.init(frame: .zero)
-                button.setTitle($1, for: .normal)
-                button.tag = $0
+            buttons = models.map {
+                let button = buttonType.init(frame: frame)
+                button.configure(model: $0)
                 button.addTarget(self, action: #selector(multiSelect(_:)), for: .touchUpInside)
                 return button
             }
@@ -138,7 +137,7 @@ public class MultiSelector: UIView {
         }
     }
     
-    public var buttonType: UIButton.Type = MultiSelectionButton.self 
+    public var buttonType: MultiSelectorButton.Type = MultiSelectorDefaultButton.self
     
 }
 

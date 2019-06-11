@@ -26,20 +26,55 @@
 
 import UIKit
 
-public protocol MultiSelectorModel {}
+private extension UIColor {
+    static let light = UIColor(white: 235.0 / 255, alpha: 1)
+    static let mid = UIColor(white: 135.0 / 255, alpha: 1)
+    static let dark = UIColor(white: 34.0 / 255, alpha: 1)
+}
 
-public class MultiSelectorButton: UIButton {
+extension String: MultiSelectorModel {}
+
+public class MultiSelectorDefaultButton: MultiSelectorButton {
     
-    public required override init(frame: CGRect) {
+    public required init(frame: CGRect) {
         super.init(frame: frame)
+        initialize()
     }
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        initialize()
     }
     
-    public func configure(model: MultiSelectorModel?) {
-        fatalError("The configure method must be overridden!")
+    private func initialize() {
+        backgroundColor = .light
+        setTitleColor(.dark, for: .normal)
+        setTitleColor(.mid, for: .highlighted)
+        setTitleColor(.white, for: .selected)
+        setTitleColor(.mid, for: [.highlighted, .selected])
+        titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        
+        layer.masksToBounds = true
+    }
+
+    public override func configure(model: MultiSelectorModel?) {
+        setTitle(model as? String, for: .normal)
+    }
+    
+    public override var bounds: CGRect {
+        didSet {
+            guard bounds != .zero else {
+                return
+            }
+            
+            layer.cornerRadius = bounds.height / 2
+        }
+    }
+
+    public override var isSelected: Bool {
+        didSet {
+            backgroundColor = isSelected ? .dark : .light
+        }
     }
     
 }
