@@ -22,7 +22,7 @@ MultiSelector is a customizable multiple selector for iOS with RxSwift supported
                        DESC
 
   s.homepage         = 'https://github.com/xflagstudio/MultiSelector'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.screenshots     = 'https://raw.githubusercontent.com/xflagstudio/MultiSelector/master/screenshots/demo.png'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'lm2343635' => 'lm2343635@126.com' }
   s.source           = { :git => 'https://github.com/xflagstudio/MultiSelector.git', :tag => s.version.to_s }
