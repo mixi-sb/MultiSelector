@@ -26,7 +26,7 @@
 
 import UIKit
 
-public protocol MultiSelecorDelegate: class {
+public protocol MultiSelectorDelegate: class {
     func didSelectedIndexUpdated(indexes: [Int])
 }
 
@@ -98,7 +98,7 @@ public class MultiSelector: UIView {
 
     }
     
-    public weak var delegate: MultiSelecorDelegate? = nil
+    public weak var delegate: MultiSelectorDelegate? = nil
     
     @IBInspectable
     public var numberOfColumns: Int = 4 {

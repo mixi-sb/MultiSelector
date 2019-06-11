@@ -26,10 +26,20 @@ TODO: Add long description of the pod here.
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'lm2343635' => 'lm2343635@126.com' }
   s.source           = { :git => 'https://github.com/xflagstudio/MultiSelector.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
-
-  s.source_files = 'MultiSelector/Classes/**/*'
+  s.swift_version = '5.0'
+  s.default_subspec = 'Core'
+  
+  s.subspec 'Core' do |core|
+    core.source_files = 'MultiSelector/Classes/Core/**/*'
+  end
+  
+  s.subspec 'Rx' do |rx|
+    rx.dependency 'MultiSelector/Core'
+    rx.dependency 'RxCocoa', '~> 5'
+    rx.dependency 'RxSwift', '~> 5'
+    rx.source_files = 'MultiSelector/Classes/Rx/**/*'
+  end
   
 end

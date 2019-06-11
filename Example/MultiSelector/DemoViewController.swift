@@ -1,16 +1,16 @@
 //
-//  ViewController.swift
+//  DemoViewController.swift
 //  MultiSelector
 //
-//  Created by lm2343635 on 06/10/2019.
-//  Copyright (c) 2019 lm2343635. All rights reserved.
+//  Created by Meng Li on 06/10/2019.
+//  Copyright (c) 2019 XFLAG. All rights reserved.
 //
 
 import UIKit
 import Fakery
 import MultiSelector
 
-class ViewController: UIViewController {
+class DemoViewController: UIViewController {
 
     @IBOutlet weak var multiSelector: MultiSelector!
     
@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController: MultiSelecorDelegate {
+extension DemoViewController: MultiSelectorDelegate {
     
     func didSelectedIndexUpdated(indexes: [Int]) {
         print(indexes.map { allModels[$0] })

@@ -2,7 +2,8 @@ use_frameworks!
 platform :ios, '10.0'
 
 target 'MultiSelector_Example' do
-  pod 'MultiSelector', :path => '../'
+  pod 'MultiSelector/Rx', :path => '../'
+  pod 'SnapKit'
   pod 'Fakery'
 
   target 'MultiSelector_Tests' do
