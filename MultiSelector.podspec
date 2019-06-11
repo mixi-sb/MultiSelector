@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MultiSelector'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of MultiSelector.'
+  s.version          = '0.1'
+  s.summary          = 'Customizable multiple selector of iOS.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+MultiSelector is a customizable multiple selector for iOS with RxSwift supported.
                        DESC
 
   s.homepage         = 'https://github.com/xflagstudio/MultiSelector'

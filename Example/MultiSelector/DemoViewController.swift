@@ -22,6 +22,7 @@ class DemoViewController: UIViewController {
         super.viewDidLoad()
         
         multiSelector.delegate = self
+        multiSelector.buttonType = MultiSelectorDefaultButton.self
         multiSelector.models = (0..<10).map { allModels[$0] }
     }
 
