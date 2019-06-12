@@ -51,7 +51,7 @@ public class MultiSelectorDefaultButton: MultiSelectorButton {
         setTitleColor(.mid, for: .highlighted)
         setTitleColor(.white, for: .selected)
         setTitleColor(.mid, for: [.highlighted, .selected])
-        titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         
         layer.masksToBounds = true
     }
