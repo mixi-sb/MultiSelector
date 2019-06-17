@@ -15,7 +15,7 @@ class DemoViewController: UIViewController {
     @IBOutlet weak var multiSelector: MultiSelector!
     @IBOutlet weak var numberOfModelsLabel: UILabel!
     @IBOutlet weak var numberOfColumnsLabel: UILabel!
-    @IBOutlet weak var numberOfSelectedItemsLabel: UILabel!
+    @IBOutlet weak var numberOfSelectableItemsLabel: UILabel!
     
     private let faker = Faker()
     
@@ -41,7 +41,7 @@ class DemoViewController: UIViewController {
     
     @IBAction func changeNumberOfSelectedItems(_ sender: UIStepper) {
         multiSelector.numberOfSelectableItems = Int(sender.value)
-        numberOfSelectedItemsLabel.text = "Number of selected items \(multiSelector.numberOfSelectableItems)"
+        numberOfSelectableItemsLabel.text = "Number of selectable items \(multiSelector.numberOfSelectableItems)"
     }
     
 }

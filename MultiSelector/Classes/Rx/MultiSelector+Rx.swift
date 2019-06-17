@@ -36,4 +36,22 @@ extension Reactive where Base: MultiSelector {
         return delegate.didSelectedIndexUpdated
     }
     
+    public var models: Binder<[MultiSelectorModel]> {
+        return Binder(base) { selector, models in
+            selector.models = models
+        }
+    }
+    
+    public var numberOfColumns: Binder<Int> {
+        return Binder(base) { selector, numberOfColumns in
+            selector.numberOfColumns = numberOfColumns
+        }
+    }
+    
+    public var numberOfSelectableItems: Binder<Int> {
+        return Binder(base) { selector, numberOfSelectableItems in
+            selector.numberOfSelectableItems = numberOfSelectableItems
+        }
+    }
+    
 }
