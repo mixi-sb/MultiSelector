@@ -40,6 +40,10 @@ public class Button: MultiSelectorButton {
 multiSelector.buttonType = Button.self
 multiSelector.delegate = self
 multiSelector.models = [model1, model2, ...]
+multiSelector.numberOfSelectableItems = 4
+multiSelector.numberOfColumns = 4
+multiSelector.verticalSpaceing = 10
+multiSelector.horizontalSpacing = 10
 ```
 
 #### Observe selected indexes

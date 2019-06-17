@@ -104,7 +104,18 @@ public class MultiSelector: UIView {
     @IBInspectable
     public var numberOfSelectableItems: Int = 4 {
         didSet {
-            
+            // Unselect redundant buttons.
+            let redundant = selectedIndexes.count - numberOfSelectableItems
+            if redundant > 0 {
+                (0..<redundant).map { selectedIndexes[$0] }.forEach {
+                    guard 0..<buttons.count ~= $0 else {
+                        return
+                    }
+                    buttons[$0].isSelected = false
+                }
+                
+                selectedIndexes.removeFirst(redundant)
+            }
         }
     }
     
@@ -153,7 +164,7 @@ extension MultiSelector {
     
     @objc
     private func multiSelect(_ sender: UIButton) {
-        if selectedIndexes.count == numberOfColumns && numberOfColumns > 0 && !sender.isSelected {
+        if selectedIndexes.count == numberOfSelectableItems && numberOfSelectableItems > 0 && !sender.isSelected {
             let button = buttons[selectedIndexes[0]]
             button.isSelected = false
             selectedIndexes.remove(at: 0)

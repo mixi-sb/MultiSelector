@@ -13,6 +13,9 @@ import MultiSelector
 class DemoViewController: UIViewController {
 
     @IBOutlet weak var multiSelector: MultiSelector!
+    @IBOutlet weak var numberOfModelsLabel: UILabel!
+    @IBOutlet weak var numberOfColumnsLabel: UILabel!
+    @IBOutlet weak var numberOfSelectedItemsLabel: UILabel!
     
     private let faker = Faker()
     
@@ -28,10 +31,17 @@ class DemoViewController: UIViewController {
 
     @IBAction func changeNumberOfModels(_ sender: UIStepper) {
         multiSelector.models = (0..<Int(sender.value)).map { allModels[$0] }
+        numberOfModelsLabel.text = "Number of models \(multiSelector.models.count)"
     }
     
     @IBAction func changeNumberOfColumns(_ sender: UIStepper) {
         multiSelector.numberOfColumns = Int(sender.value)
+        numberOfColumnsLabel.text = "Number of columns \(multiSelector.numberOfColumns)"
+    }
+    
+    @IBAction func changeNumberOfSelectedItems(_ sender: UIStepper) {
+        multiSelector.numberOfSelectableItems = Int(sender.value)
+        numberOfSelectedItemsLabel.text = "Number of selected items \(multiSelector.numberOfSelectableItems)"
     }
     
 }
