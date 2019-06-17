@@ -28,7 +28,7 @@ import UIKit
 
 public protocol MultiSelectorModel {}
 
-public class MultiSelectorButton: UIButton {
+open class MultiSelectorButton: UIButton {
     
     public required override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,7 +38,7 @@ public class MultiSelectorButton: UIButton {
         super.init(coder: aDecoder)
     }
     
-    public func configure(model: MultiSelectorModel?) {
+    open func configure(model: MultiSelectorModel?) {
         fatalError("The configure method must be overridden!")
     }
     
