@@ -41,6 +41,7 @@ public class MultiSelector: UIView {
     }()
     
     private var buttons: [UIButton] = []
+    private var selectedIndexes: [Int] = []
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -101,6 +102,13 @@ public class MultiSelector: UIView {
     public weak var delegate: MultiSelectorDelegate? = nil
     
     @IBInspectable
+    public var numberOfSelectableItems: Int = 4 {
+        didSet {
+            
+        }
+    }
+    
+    @IBInspectable
     public var numberOfColumns: Int = 4 {
         didSet {
             refresh()
@@ -145,13 +153,27 @@ extension MultiSelector {
     
     @objc
     private func multiSelect(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
+        if selectedIndexes.count == numberOfColumns && numberOfColumns > 0 && !sender.isSelected {
+            let button = buttons[selectedIndexes[0]]
+            button.isSelected = false
+            selectedIndexes.remove(at: 0)
+        }
+
+        guard let index = buttons.firstIndex(of: sender) else {
+            return
+        }
         
-        delegate?.didSelectedIndexUpdated(indexes: buttons.enumerated().filter {
-            $0.element.isSelected
-        }.map {
-            $0.offset
-        })
+        if sender.isSelected {
+            sender.isSelected = false
+            if let indexesIndex = selectedIndexes.firstIndex(of: index) {
+                selectedIndexes.remove(at: indexesIndex)
+            }
+        } else {
+            sender.isSelected = true
+            selectedIndexes.append(index)
+        }
+        
+        delegate?.didSelectedIndexUpdated(indexes: selectedIndexes.sorted())
     }
     
 }
