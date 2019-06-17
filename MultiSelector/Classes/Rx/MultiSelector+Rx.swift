@@ -48,9 +48,9 @@ extension Reactive where Base: MultiSelector {
         }
     }
     
-    public var numberOfSelectableItems: Binder<Int> {
-        return Binder(base) { selector, numberOfSelectableItems in
-            selector.numberOfSelectableItems = numberOfSelectableItems
+    public var maxNumberOfSelectableItems: Binder<Int> {
+        return Binder(base) { selector, maxNumberOfSelectableItems in
+            selector.maxNumberOfSelectableItems = maxNumberOfSelectableItems
         }
     }
     

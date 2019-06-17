@@ -40,8 +40,8 @@ class DemoViewController: UIViewController {
     }
     
     @IBAction func changeNumberOfSelectedItems(_ sender: UIStepper) {
-        multiSelector.numberOfSelectableItems = Int(sender.value)
-        numberOfSelectableItemsLabel.text = "Number of selectable items \(multiSelector.numberOfSelectableItems)"
+        multiSelector.maxNumberOfSelectableItems = Int(sender.value)
+        numberOfSelectableItemsLabel.text = "Max number of selectable items \(multiSelector.maxNumberOfSelectableItems)"
     }
     
 }

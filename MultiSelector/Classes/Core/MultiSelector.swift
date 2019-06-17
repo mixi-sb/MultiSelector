@@ -102,10 +102,13 @@ public class MultiSelector: UIView {
     public weak var delegate: MultiSelectorDelegate? = nil
     
     @IBInspectable
-    public var numberOfSelectableItems: Int = 4 {
+    public var minNumberOfSelectableItems: Int = 1
+    
+    @IBInspectable
+    public var maxNumberOfSelectableItems: Int = 4 {
         didSet {
             // Unselect redundant buttons.
-            let redundant = selectedIndexes.count - numberOfSelectableItems
+            let redundant = selectedIndexes.count - maxNumberOfSelectableItems
             if redundant > 0 {
                 (0..<redundant).map { selectedIndexes[$0] }.forEach {
                     guard 0..<buttons.count ~= $0 else {
@@ -164,22 +167,23 @@ extension MultiSelector {
     
     @objc
     private func multiSelect(_ sender: UIButton) {
-        if selectedIndexes.count == numberOfSelectableItems && numberOfSelectableItems > 0 && !sender.isSelected {
-            let button = buttons[selectedIndexes[0]]
-            button.isSelected = false
-            selectedIndexes.remove(at: 0)
-        }
-
         guard let index = buttons.firstIndex(of: sender) else {
             return
         }
         
         if sender.isSelected {
-            sender.isSelected = false
-            if let indexesIndex = selectedIndexes.firstIndex(of: index) {
-                selectedIndexes.remove(at: indexesIndex)
+            if selectedIndexes.count > minNumberOfSelectableItems {
+                sender.isSelected = false
+                if let indexesIndex = selectedIndexes.firstIndex(of: index) {
+                    selectedIndexes.remove(at: indexesIndex)
+                }
             }
         } else {
+            if selectedIndexes.count == maxNumberOfSelectableItems && maxNumberOfSelectableItems > 0 {
+                let button = buttons[selectedIndexes[0]]
+                button.isSelected = false
+                selectedIndexes.remove(at: 0)
+            }
             sender.isSelected = true
             selectedIndexes.append(index)
         }
