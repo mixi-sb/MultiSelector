@@ -27,6 +27,7 @@ class DemoViewController: UIViewController {
         multiSelector.delegate = self
         multiSelector.buttonType = MultiSelectorDefaultButton.self
         multiSelector.models = (0..<10).map { allModels[$0] }
+        multiSelector.pick(at: 0)
     }
 
     @IBAction func changeNumberOfModels(_ sender: UIStepper) {

@@ -161,6 +161,13 @@ public class MultiSelector: UIView {
     
     public var buttonType: MultiSelectorButton.Type = MultiSelectorDefaultButton.self
     
+    public func pick(at index: Int) {
+        guard 0..<buttons.count ~= index else {
+            return
+        }
+        multiSelect(buttons[index])
+    }
+    
 }
 
 extension MultiSelector {

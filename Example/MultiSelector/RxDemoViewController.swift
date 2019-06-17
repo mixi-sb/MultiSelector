@@ -22,6 +22,7 @@ class RxDemoViewController: UIViewController {
     private lazy var multiSelector: MultiSelector = {
         let multiSelector = MultiSelector()
         multiSelector.models = allModels
+        multiSelector.pick(at: 0)
         multiSelector.rx.indexesSelected.subscribe(onNext: { [unowned self] in
             print($0.map { self.allModels[$0] })
         }).disposed(by: disposeBag)
