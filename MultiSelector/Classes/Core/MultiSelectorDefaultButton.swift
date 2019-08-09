@@ -53,8 +53,10 @@ public class MultiSelectorDefaultButton: MultiSelectorButton {
         backgroundColor = .light
         setTitleColor(.dark, for: .normal)
         setTitleColor(.mid, for: .highlighted)
+        setTitleColor(.mid, for: .disabled)
         setTitleColor(.white, for: .selected)
-        setTitleColor(.mid, for: [.highlighted, .selected])
+        setTitleColor(.mid, for: [.selected, .highlighted])
+        setTitleColor(.mid, for: [.selected, .disabled])
         titleLabel?.font = .systemFont(ofSize: 15, weight: .bold)
         
         layer.masksToBounds = true

@@ -163,7 +163,10 @@ public class MultiSelector: UIView {
     public var buttonType: MultiSelectorButton.Type = MultiSelectorDefaultButton.self
     
     public func pick(at index: Int) {
-        guard 0..<buttons.count ~= index else {
+        guard
+            0..<buttons.count ~= index,
+            0..<models.count ~= index, models[index].isEnabled
+        else {
             return
         }
         multiSelect(buttons[index])
