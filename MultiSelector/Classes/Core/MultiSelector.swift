@@ -151,6 +151,7 @@ public class MultiSelector: UIView {
         didSet {
             buttons = models.map {
                 let button = buttonType.init(frame: frame)
+                button.isEnabled = $0.isEnabled
                 button.configure(model: $0)
                 button.addTarget(self, action: #selector(multiSelect(_:)), for: .touchUpInside)
                 return button

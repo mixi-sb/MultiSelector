@@ -31,7 +31,11 @@ private extension UIColor {
     static let dark = UIColor(white: 34.0 / 255, alpha: 1)
 }
 
-extension String: MultiSelectorModel {}
+extension String: MultiSelectorModel {
+    public var title: String {
+        return self
+    }
+}
 
 public class MultiSelectorDefaultButton: MultiSelectorButton {
     
@@ -51,13 +55,13 @@ public class MultiSelectorDefaultButton: MultiSelectorButton {
         setTitleColor(.mid, for: .highlighted)
         setTitleColor(.white, for: .selected)
         setTitleColor(.mid, for: [.highlighted, .selected])
-        titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+        titleLabel?.font = .systemFont(ofSize: 15, weight: .bold)
         
         layer.masksToBounds = true
     }
 
     public override func configure(model: MultiSelectorModel?) {
-        setTitle(model as? String, for: .normal)
+        setTitle(model?.title, for: .normal)
     }
     
     public override var bounds: CGRect {

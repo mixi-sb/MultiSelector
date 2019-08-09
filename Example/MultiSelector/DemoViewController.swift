@@ -10,6 +10,11 @@ import UIKit
 import Fakery
 import MultiSelector
 
+struct SelectorName: MultiSelectorModel {
+    let title: String
+    let isEnabled: Bool
+}
+
 class DemoViewController: UIViewController {
 
     @IBOutlet weak var multiSelector: MultiSelector!
@@ -19,7 +24,7 @@ class DemoViewController: UIViewController {
     
     private let faker = Faker()
     
-    private lazy var allModels = (0...19).map { _ in faker.name.firstName() }
+    private lazy var allModels = (0...19).map { _ in SelectorName(title: faker.name.firstName(), isEnabled: Bool.random()) }
     
     override func viewDidLoad() {
         super.viewDidLoad()

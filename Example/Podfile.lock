@@ -1,7 +1,7 @@
 PODS:
   - Fakery (4.0.0)
-  - MultiSelector/Core (0.1.0)
-  - MultiSelector/Rx (0.1.0):
+  - MultiSelector/Core (0.2.1)
+  - MultiSelector/Rx (0.2.1):
     - MultiSelector/Core
     - RxCocoa (~> 5)
     - RxSwift (~> 5)
@@ -32,7 +32,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Fakery: 476f6d947de432f84703acc830a1e7166330299b
-  MultiSelector: 0d0310178218baa7da98b7520aad4b3993ec402a
+  MultiSelector: a671c94a0f2d489fc26b944dfb56a49b730c8eb5
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
@@ -40,4 +40,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 62a2e03b443a735b4a2c0675eb5c88b4e2222b2e
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.7.5
