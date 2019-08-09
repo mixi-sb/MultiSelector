@@ -34,7 +34,7 @@ struct Model: MultiSelectorModel {
 
 ```Swift
 public class Button: MultiSelectorButton {
-	public override func configure(model: MultiSelectorModel?) {
+   public override func configure(model: MultiSelectorModel?) {
        // customized code.
    }
 }
