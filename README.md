@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/MultiSelector.svg?style=flat)](https://cocoapods.org/pods/MultiSelector)
 [![Platform](https://img.shields.io/cocoapods/p/MultiSelector.svg?style=flat)](https://cocoapods.org/pods/MultiSelector)
 
-MultiSelector is a customizable multiple selector for iOS with RxSwift supporting.
+MultiSelector is a customizable multiple selector for iOS with RxSwift supported.
 
 ![Demo](https://raw.githubusercontent.com/xflagstudio/MultiSelector/master/screenshots/demo.png)
 
@@ -20,8 +20,14 @@ pod 'MultiSelector'
 
 #### Customzied model
 
+A customized model for a customized button must contains the title of the button.
+If you want to control the `isEnabled` property of the button, just add it into your customized model.
+
 ```Swift
-class Model: MultiSelectorModel {}
+struct Model: MultiSelectorModel {
+    let title: String
+    let isEnabled: Bool
+}
 ```
 
 #### Customzied button

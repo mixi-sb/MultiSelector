@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MultiSelector'
-  s.version          = '0.2.1'
+  s.version          = '0.3'
   s.summary          = 'Customizable multiple selector of iOS.'
 
 # This description is used to generate tags and improve search results.

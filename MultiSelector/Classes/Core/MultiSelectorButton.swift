@@ -26,7 +26,16 @@
 
 import UIKit
 
-public protocol MultiSelectorModel {}
+public protocol MultiSelectorModel {
+    var title: String { get }
+    var isEnabled: Bool { get }
+}
+
+extension MultiSelectorModel {
+    public var isEnabled: Bool {
+        return true
+    }
+}
 
 open class MultiSelectorButton: UIButton {
     
